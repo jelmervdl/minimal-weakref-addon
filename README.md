@@ -1,3 +1,7 @@
+# Issue
+
+Inside an add-on's content-script, any `WeakRef` to any DOM element on the page it operates on seems to lose its reference faster than that the actual object goes out of scope.
+
 # Steps to reproduce
 
 1. Install this add-on
