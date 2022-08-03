@@ -5,11 +5,11 @@ var registry = new FinalizationRegistry(tag => {
 })
 
 function test() {
-    const body = document.querySelector('body');
+    const body = document.wrappedJSObject.querySelector('body');
 
     ref = new WeakRef(body);
     console.log('[content-script] created ref to', ref.deref());
-    // registry.register(body, 'document.body');
+    registry.register(body, 'document.body');
 
     document.body.addEventListener('click', e => {
         console.log('[content-script] ref is', ref.deref());
